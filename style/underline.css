@@ -1,0 +1,291 @@
+/* --------- A: text-decoration ----------------------------------- */
+.textDecoration {
+  text-decoration: #05c662 underline 1px;
+  /*   
+  text-decoration-color: #05c662;
+  text-decoration-line: underline;
+  text-decoration-style: solid; 初期値はsolidなので今回は省略
+  text-decoration-thickness: 1px;
+  */
+
+  /* -- ▼Safari用に追加 -- */
+  -webkit-text-decoration: #05c662 underline;
+  text-decoration-thickness: 1px;
+  /* -webkit-text-decorationの一括指定に含められないので個別で指定 */
+
+  /* オフセット */
+  text-underline-offset: 7px;
+}
+
+.textDecorationMarker {
+  text-decoration-color: #05c662a0;
+  text-decoration-line: underline;
+  text-decoration-thickness: 8px;
+  text-underline-offset: -5px;
+}
+
+/* --------- B: border-bottom ----------------------------------- */
+.borderBottom {
+  border-bottom: #05c662 solid 1px;
+  padding-bottom: 5px;
+  /* オフセット */
+}
+
+/* --------- C: background-image ----------------------------------- */
+.simpleBackgroundImage {
+  background-image: linear-gradient(transparent 50%, #05c662a0 0%);
+}
+
+.gradationBackgroundImage {
+  background-image: linear-gradient(to right, #05c662, #fe407e); /* グラデーション */
+  background-size: 100% 1px; /* 幅(100%=文字の長さ) | 高さ(=線の太さ) */
+  background-position: bottom; /* 下に配置 */
+  background-repeat: no-repeat; /* 背景を繰り返さない */
+  padding-bottom: 5px; /* オフセット */
+}
+
+/* --------- D: background-sizeのアニメーション ----------------------------------- */
+.backgroundImage {
+  background-image: linear-gradient(#05c662, #05c662); /* 単色 */
+  background-size: 0 1px; /* 幅(0=見えない状態) | 高さ(=線の太さ) */
+  background-position: bottom right; /* 右下に配置 */
+  background-repeat: no-repeat;
+  padding-bottom: 5px;
+  transition: background-size 0.3s ease-out;
+}
+
+.textWrapper:hover .backgroundImage {
+  background-size: 100% 1px; /* 幅(100%=文字の長さ) | 高さ(=線の太さ) */
+  background-position: bottom left; /* 左下に配置 */
+}
+
+.backgroundImage__slice {
+  box-decoration-break: slice; /* Firefox用に指定 */
+  -webkit-box-decoration-break: slice; /* Firefox以外のブラウザ用に指定 */
+  transition: background-size 1.2s ease-out;
+}
+
+.backgroundImage__clone {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background-size 0.6s ease-out;
+}
+
+/* --------- E: 疑似要素関連 ----------------------------------- */
+.pseudoElement {
+  position: relative;
+}
+
+.pseudoElement::after {
+  content: "";
+  position: absolute;
+  width: 100%; /* 文字の長さに合わせる */
+  height: 1px; /* 線の太さ */
+  bottom: -5px; /* オフセット */
+  left: 0;
+  background-color: #05c662;
+}
+
+/* -　回転とスケールが変化するアニメーション　- */
+.pseudoElement__rotate::after {
+  transform: rotate(15deg) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease-out;
+}
+.textWrapper:hover .pseudoElement__rotate::after {
+  transform: rotate(0deg) scaleX(1);
+}
+
+/* -　移動とスケールが変化するアニメーション　- */
+.pseudoElement__translate::after {
+  transform: translateY(10px) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease-out;
+}
+.textWrapper:hover .pseudoElement__translate::after {
+  transform: translateY(0) scaleX(1);
+}
+
+/* -　スケールが変化するアニメーション　- */
+.pseudoElement__scale::after {
+  transform: scaleX(0);
+  transform-origin: right top;
+  transition: transform 0.2s ease-out;
+}
+.textWrapper:hover .pseudoElement__scale::after {
+  transform: scaleX(1);
+  transform-origin: left top;
+}
+
+/* --------- F: 下線用のタグを作る方法 ----------------------------------- */
+/* -　表示されているテキストのスタイル　- */
+.visibleText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 16px; /* 配置を揃えるため、親要素(p.textWrapper)と同じpaddingを指定する */
+}
+
+.visibleText__centering {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+
+/* -　表示されている下線のスタイル　- */
+.clipPath {
+  display: inline-block;
+  clip-path: inset(0 0 0 0);
+
+  /* テキストを透明にし、選択できないようにする */
+  color: transparent;
+  user-select: none;
+}
+
+/* -　左から右へ線が現れるアニメーション　- */
+.clipPath__fromLeft {
+  animation: hide-line 0.6s ease-out forwards;
+}
+@keyframes hide-line {
+  to {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+.textWrapper:hover .clipPath__fromLeft {
+  animation: show-line 0.6s ease-out;
+}
+@keyframes show-line {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+/* -　中心から左右へ線が現れるアニメーション　- */
+.clipPath__centering {
+  text-align: center;
+  clip-path: inset(0 50% 0 50%);
+  transition: clip-path 0.6s ease-out;
+}
+
+.textWrapper:hover .clipPath__centering {
+  clip-path: inset(0 0 0 0);
+}
+
+/* -　下線が移動するアニメーション　- */
+.transformTranslateY {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(5%);
+  transition: transform 0.4s ease-out, opacity 0.4s;
+
+  /* テキストを透明にし、選択できないようにする */
+  color: transparent;
+  user-select: none;
+}
+
+.textWrapper:hover .transformTranslateY {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------- おまけ: 背景画像 ----------------------------------- */
+.wavyLine{
+  background-image: url(../image/wavy.svg);
+  background-size: 10% 5px;
+  background-repeat: repeat-x;
+  background-position: bottom; /* 下に配置 */
+  padding-bottom: 7px; /* オフセット */
+}
+
+.wavyLine__long {
+  background-size: 1% 5px;
+}
+
+.maskImage {
+  animation: mask-image-hide-line 1s ease-out forwards;
+  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 50%);
+  -webkit-mask-size: 300%;
+  mask-image: linear-gradient(to right, black 50%, transparent 50%);
+  mask-size: 300%;
+  box-decoration-break: slice;
+  -webkit-box-decoration-break: slice;
+  /* テキストを透明にし、選択できないようにする */
+  color: transparent;
+  user-select: none;
+}
+
+.textWrapper:hover .maskImage {
+  animation: mask-image-show-line 1s ease-out;
+}
+
+@keyframes mask-image-hide-line {
+  0% {
+    -webkit-mask-position-x: 0;
+    mask-position-x: 0;
+  }
+
+  100% {
+    -webkit-mask-position-x: -50%;
+    mask-position-x: -50%;
+  }
+}
+
+@keyframes mask-image-show-line {
+  0% {
+    -webkit-mask-position-x: 100%;
+    mask-position-x: 100%;
+  }
+
+  100% {
+    -webkit-mask-position-x: 0;
+    mask-position-x: 0;
+  }
+}
+
+/* --------- ラッパー要素 ----------------------------------- */
+.textWrapper {
+  position: relative;
+  background-color: #d0d0d032;
+  padding: 16px;
+  border-radius: 6px;
+  line-height: 1.75;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.textWrapper__centering {
+  display: flex;
+  justify-content: center;
+}
+
+.textOverflow {
+  display: block; /* ブロック要素 */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: calc(16px * 1.75 + 5px);
+}
+
+.lineClamp1 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; /* 1行(text-overflow: ellipsis;と見た目はほぼ同じ) */
+  height: calc(16px * 1.75 + 5px);
+}
+
+.lineClamp3 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  /* 
+  {font-size: 16px; line-height: 1.75;} の時、
+  1行あたり (16px * 1.75)px = 28px の高さが確保される
+  (16px * 1.75) * 3行 + 下線(span.borderBottom)に設定した padding-bottom (オフセット)
+  */
+  height: calc(16px * 1.75 * 3 + 5px);
+}

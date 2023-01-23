@@ -12,6 +12,7 @@
 <body>
   <div class="wrapper">
     <h1>テキストに下線を引く方法</h1>
+    <p class="mobileAlert">PCサイズ画面での閲覧推奨です。<br>画面幅小さいと、若干見づらいところがあると思います。ご了承ください。</p>
 
     <section>
       <h2>A. <code>text-decoration: underline;</code></h2>
@@ -106,16 +107,18 @@
       <p class="textWrapper">
         すると<span class="backgroundImage">小さなきれいな声</span>で、誰か歌いだしたものがあります。
       </p>
-      <h3><code>box-decoration-break:</code></h3>
-      <h4><code>slice;</code>の場合</h4>
+
+      <h3><code>box-decoration-break</code>の値によるアニメーションの違い</h3>
+      <h4><code>slice</code>の場合</h4>
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
-      <p class="textWrapper">
+      <p class="textWrapper textWrapper__small">
         <span class="backgroundImage backgroundImage__slice">
           「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
       </p>
-      <h4><code>clone;</code>の場合</h4>
+
+      <h4><code>clone</code>の場合</h4>
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
-      <p class="textWrapper">
+      <p class="textWrapper textWrapper__small">
         <span
           class="backgroundImage backgroundImage__clone">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
       </p>
@@ -143,28 +146,24 @@
       <h2>F. 下線用のタグを作る方法</h2>
       <h3><code>clip-path</code>によるアニメーション</h3>
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
-      <p class="textWrapper">
+      <p class="textWrapper textWrapper__small">
+        <!-- ▼下線のみ表示させる要素 -->
+        <span class="clipPath clipPath__fromLeft textDecoration" aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
         <!-- ▼テキストのみ表示させる要素 -->
         <span class="visibleText">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
-        <!-- ▼下線のみ表示させる要素 -->
-        <span class="clipPath clipPath__fromLeft textDecoration"
-          aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
       </p>
 
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
-      <p class="textWrapper textWrapper__centering">
-        <span
-          class="visibleText visibleText__centering">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
-        <span class="clipPath clipPath__centering textDecoration"
-          aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
+      <p class="textWrapper textWrapper__small textWrapper__centering">
+        <span class="clipPath clipPath__centering textDecoration" aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
+        <span class="visibleText visibleText__centering">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
       </p>
 
       <h3><code>transform: translateY()</code>によるアニメーション</h3>
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
-      <p class="textWrapper">
+      <p class="textWrapper textWrapper__small">
+        <span class="transformTranslateY textDecoration" aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
         <span class="visibleText">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
-        <span class="transformTranslateY textDecoration"
-          aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
       </p>
     </section>
 
@@ -175,18 +174,16 @@
 
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
       <p class="textWrapper">
+        <span class="maskImage wavyLine wavyLine__long" aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
         <span class="visibleText">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
-        <span class="maskImage wavyLine wavyLine__long"
-          aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
       </p>
 
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
       <p class="textWrapper">
-        <span class="visibleText">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
         <span class="clipPath clipPath__fromLeft">
-          <span class="wavyLine wavyLine__long"
-            aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
+          <span class="wavyLine wavyLine__long" aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
         </span>
+        <span class="visibleText">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
       </p>
     </section>
   </div>

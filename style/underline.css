@@ -255,6 +255,10 @@
   margin-bottom: 16px;
 }
 
+.textWrapper__small {
+  max-width: 440px;
+}
+
 .textWrapper__centering {
   display: flex;
   justify-content: center;

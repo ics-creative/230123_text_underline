@@ -119,3 +119,27 @@ p.textWrapper {
     margin-bottom: 32px;
   }
 }
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+@media (max-width: 1050px) {
+  .navigation{
+    display: none;
+  }
+}
+.navigation li{
+  margin-bottom: 4px;
+}
+.navigation a {
+  color: royalblue;
+  text-underline-offset: 4px;
+}
+.navigation a:visited {
+  color: #05c662;
+}

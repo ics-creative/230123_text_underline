@@ -198,6 +198,7 @@
   background-position: bottom; /* 下に配置 */
   padding-bottom: 7px; /* オフセット */
 }
+
 /* --------- ラッパー要素 ----------------------------------- */
 .textWrapper {
   position: relative;

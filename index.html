@@ -14,7 +14,7 @@
     <h1>テキストに下線を引く方法</h1>
     <p class="mobileAlert">PCサイズ画面での閲覧推奨です。<br>画面幅小さいと、若干見づらいところがあると思います。ご了承ください。</p>
 
-    <section>
+    <section id="a">
       <h2>A. <code>text-decoration</code>でシンプルに下線を引く</h2>
       <p class="textWrapper">むかし、ある<span class="textDecoration">霧のふかい朝</span>でした。</p>
 
@@ -28,7 +28,7 @@
       </p>
     </section>
 
-    <section>
+    <section id="b">
       <h2>B. 3点リーダーがある時は<code>border-bottom</code>で下線を引く</h2>
       <p class="textWrapper">むかし、ある<span class="borderBottom">霧のふかい朝</span>でした。</p>
 
@@ -81,7 +81,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="c">
       <h2>C. <code>background-image</code>で下線を引く</h2>
       <h3><code>background-image: linear-gradient();</code>による下線の作り方2パターン</h3>
       <h4>1: 3点リーダーまで含むマーカー風な下線</h4>
@@ -101,7 +101,7 @@
       </p>
     </section>
 
-    <section>
+    <section id="d">
       <h2>D. <code>background-size</code>で線の横幅を変えるアニメーション</h2>
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
       <p class="textWrapper">
@@ -124,7 +124,7 @@
       </p>
     </section>
 
-    <section>
+    <section id="e">
       <h2>E. CSS疑似要素</h2>
       <h3>単語・1行以内はOK</h3>
       <p class="textWrapper textWrapper__lineClamp1">その<span class="pseudoElement">宝石の雨</span>は、草に落ちてカチンカチンと鳴りました。
@@ -142,7 +142,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="f">
       <h2>F. 下線用のタグを作る方法</h2>
       <h3><code>clip-path</code>によるアニメーション</h3>
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
@@ -167,7 +167,7 @@
       </p>
     </section>
 
-    <section>
+    <section id="add">
       <h2>おまけ</h2>
       <h3>画像なら<code>background-image: url();</code></h3>
       <p class="textWrapper">むかし、ある<span class="starLine">霧のふかい朝</span>でした。</p>
@@ -188,6 +188,18 @@
       </p>
     </section>
   </div>
+
+  <nav class="navigation">
+    <ul>
+      <li><a href="#a">A. text-decoration</a></li>
+      <li><a href="#b">B. border-bottom</a></li>
+      <li><a href="#c">C. background-image</a></li>
+      <li><a href="#d">D. background-size</a></li>
+      <li><a href="#e">E. CSS疑似要素</a></li>
+      <li><a href="#f">F. 下線用のタグ</a></li>
+      <li><a href="#add">おまけ. 背景画像</a></li>
+    </ul>
+  </nav>
 </body>
 
 </html>

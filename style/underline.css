@@ -118,7 +118,7 @@
 }
 
 /* --------- F: 下線用のタグを作る方法 ----------------------------------- */
-/* -　表示されているテキストのスタイル　- */
+/* ----　表示されているテキストのスタイル　---- */
 .visibleText {
   position: absolute;
   top: 0;
@@ -133,10 +133,10 @@
   text-align: center;
 }
 
-/* -　表示されている下線のスタイル　- */
+/* ----　表示されている下線のスタイル　---- */
 .clipPath {
-  display: inline-block;
-  clip-path: inset(0 0 0 0);
+  display: inline-block; /* インライン要素として下線を表示させつつ、ブロック要素としてアニメーションさせる */
+  clip-path: inset(0 0 -5px 0); /* -5px: 一番下の下線が隠れないよう調整 */
 
   /* テキストを透明にし、選択できないようにする */
   color: transparent;
@@ -149,7 +149,7 @@
 }
 @keyframes hide-line {
   to {
-    clip-path: inset(0 0 0 100%);
+    clip-path: inset(0 0 -5px 100%);
   }
 }
 
@@ -158,19 +158,19 @@
 }
 @keyframes show-line {
   from {
-    clip-path: inset(0 100% 0 0);
+    clip-path: inset(0 100% -5px 0);
   }
 }
 
 /* -　中心から左右へ線が現れるアニメーション　- */
 .clipPath__centering {
   text-align: center;
-  clip-path: inset(0 50% 0 50%);
+  clip-path: inset(0 50% -5px 50%);
   transition: clip-path 0.6s ease-out;
 }
 
 .textWrapper:hover .clipPath__centering {
-  clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 -5px 0);
 }
 
 /* -　下線が移動するアニメーション　- */
@@ -191,59 +191,13 @@
 }
 
 /* --------- おまけ: 背景画像 ----------------------------------- */
-.wavyLine{
-  background-image: url(../image/wavy.svg);
-  background-size: 10% 5px;
+.starLine{
+  background-image: url(../image/star.svg);
+  background-size: 20px 8px;
   background-repeat: repeat-x;
   background-position: bottom; /* 下に配置 */
   padding-bottom: 7px; /* オフセット */
 }
-
-.wavyLine__long {
-  background-size: 1% 5px;
-}
-
-.maskImage {
-  animation: mask-image-hide-line 1s ease-out forwards;
-  -webkit-mask-image: linear-gradient(to right, black 50%, transparent 50%);
-  -webkit-mask-size: 300%;
-  mask-image: linear-gradient(to right, black 50%, transparent 50%);
-  mask-size: 300%;
-  box-decoration-break: slice;
-  -webkit-box-decoration-break: slice;
-  /* テキストを透明にし、選択できないようにする */
-  color: transparent;
-  user-select: none;
-}
-
-.textWrapper:hover .maskImage {
-  animation: mask-image-show-line 1s ease-out;
-}
-
-@keyframes mask-image-hide-line {
-  0% {
-    -webkit-mask-position-x: 0;
-    mask-position-x: 0;
-  }
-
-  100% {
-    -webkit-mask-position-x: -50%;
-    mask-position-x: -50%;
-  }
-}
-
-@keyframes mask-image-show-line {
-  0% {
-    -webkit-mask-position-x: 100%;
-    mask-position-x: 100%;
-  }
-
-  100% {
-    -webkit-mask-position-x: 0;
-    mask-position-x: 0;
-  }
-}
-
 /* --------- ラッパー要素 ----------------------------------- */
 .textWrapper {
   position: relative;

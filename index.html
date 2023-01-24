@@ -15,7 +15,7 @@
     <p class="mobileAlert">PCサイズ画面での閲覧推奨です。<br>画面幅小さいと、若干見づらいところがあると思います。ご了承ください。</p>
 
     <section>
-      <h2>A. <code>text-decoration: underline;</code></h2>
+      <h2>A. <code>text-decoration</code>でシンプルに下線を引く</h2>
       <p class="textWrapper">むかし、ある<span class="textDecoration">霧のふかい朝</span>でした。</p>
 
       <p class="textWrapper">むかし、ある<span class="textDecorationMarker">霧のふかい朝</span>でした。</p>
@@ -29,7 +29,7 @@
     </section>
 
     <section>
-      <h2>B. <code>border-bottom</code></h2>
+      <h2>B. 3点リーダーがある時は<code>border-bottom</code>で下線を引く</h2>
       <p class="textWrapper">むかし、ある<span class="borderBottom">霧のふかい朝</span>でした。</p>
 
       <p class="textWrapper">
@@ -82,9 +82,9 @@
     </section>
 
     <section>
-      <h2>C. 背景グラデーション</h2>
+      <h2>C. <code>background-image</code>で下線を引く</h2>
       <h3><code>background-image: linear-gradient();</code>による下線の作り方2パターン</h3>
-      <h4>1: シンプルな記述でマーカー風にする</h4>
+      <h4>1: 3点リーダーまで含むマーカー風な下線</h4>
       <p class="textWrapper">
         <span class="lineClamp3">
           <span
@@ -92,7 +92,7 @@
         </span>
       </p>
 
-      <h4>2: 線の太さをパーセント以外の単位で決められる方法</h4>
+      <h4>2: グラデーションの下線</h4>
       <p class="textWrapper">
         <span class="lineClamp3">
           <span
@@ -102,7 +102,7 @@
     </section>
 
     <section>
-      <h2>D. <code>background-size</code>のアニメーション</h2>
+      <h2>D. <code>background-size</code>で線の横幅を変えるアニメーション</h2>
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
       <p class="textWrapper">
         すると<span class="backgroundImage">小さなきれいな声</span>で、誰か歌いだしたものがあります。
@@ -169,19 +169,20 @@
 
     <section>
       <h2>おまけ</h2>
-      <h3>どうしても欲しい線がなければ<code>background-image: url();</code>が使える</h3>
-      <p class="textWrapper">むかし、ある<span class="wavyLine">霧のふかい朝</span>でした。</p>
+      <h3>画像なら<code>background-image: url();</code></h3>
+      <p class="textWrapper">むかし、ある<span class="starLine">霧のふかい朝</span>でした。</p>
 
-      <p class="hoverHere">▼ ホバーしてご確認ください</p>
       <p class="textWrapper">
-        <span class="maskImage wavyLine wavyLine__long" aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
-        <span class="visibleText">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
+        <span class="lineClamp3">
+          <span
+              class="starLine">そして蜂雀のついた青い大きな帽子を急いでかぶって、どんどん向こうへかけ出しました。「王子さま。王子さま。どちらにいらっしゃいますか。はて、王子さま」と、年よりのけらいが、室の中であっちを向いたりこっちを向いたりして叫けんでいるようすでした。王子は霧の中で、はあはあ笑って立ちどまり、ちょっとそっちを向きましたが、またすぐ向き直って音をたてないように剣のさやをにぎりながら、どんどんどんどん大臣の家の方へかけました。</span>
+        </span>
       </p>
 
       <p class="hoverHere">▼ ホバーしてご確認ください</p>
       <p class="textWrapper">
         <span class="clipPath clipPath__fromLeft">
-          <span class="wavyLine wavyLine__long" aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
+          <span class="starLine" aria-hidden="true">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
         </span>
         <span class="visibleText">「ポッシャリ、ポッシャリ、ツイツイ、トン。<br>はやしのなかにふる霧は、<br>蟻のお手玉、三角帽子の、一寸法師のちいさなけまり」</span>
       </p>

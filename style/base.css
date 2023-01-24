@@ -140,3 +140,6 @@ p.textWrapper {
   color: royalblue;
   text-underline-offset: 4px;
 }
+.navigation li:hover > a {
+  color: blue;
+}

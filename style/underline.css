@@ -91,6 +91,7 @@
   transform: rotate(15deg) scaleX(0);
   transform-origin: center;
   transition: transform 0.2s ease-out;
+  will-change: transform; /* Safariのアニメーション表示バグ対策 */
 }
 .textWrapper:hover .pseudoElement__rotate::after {
   transform: rotate(0deg) scaleX(1);
@@ -101,6 +102,7 @@
   transform: translateY(10px) scaleX(0);
   transform-origin: center;
   transition: transform 0.2s ease-out;
+  will-change: transform; /* Safariのアニメーション表示バグ対策 */
 }
 .textWrapper:hover .pseudoElement__translate::after {
   transform: translateY(0) scaleX(1);
@@ -111,6 +113,7 @@
   transform: scaleX(0);
   transform-origin: right top;
   transition: transform 0.2s ease-out;
+  will-change: transform; /* Safariのアニメーション表示バグ対策 */
 }
 .textWrapper:hover .pseudoElement__scale::after {
   transform: scaleX(1);

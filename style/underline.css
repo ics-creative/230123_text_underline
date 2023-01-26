@@ -17,6 +17,11 @@
   text-underline-offset: 7px;
 }
 
+.textDecoration__smallOffset{
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+}
+
 .textDecorationMarker {
   text-decoration-color: #05c662a0;
   text-decoration-line: underline;
@@ -27,8 +32,7 @@
 /* --------- B: border-bottom ----------------------------------- */
 .borderBottom {
   border-bottom: #05c662 solid 1px;
-  padding-bottom: 5px;
-  /* オフセット */
+  padding-bottom: 5px; /* オフセット */
 }
 
 /* --------- C: background-image ----------------------------------- */
